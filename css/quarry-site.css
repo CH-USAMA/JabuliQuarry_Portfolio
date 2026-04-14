@@ -2033,6 +2033,16 @@ textarea {
     gap: 22px;
   }
 
+  .footer-links nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+  }
+
+  .footer-links a {
+    padding: 2px 0;
+  }
+
   .footer-brand p,
   .footer-links p,
   .footer-contact p {
@@ -2056,6 +2066,17 @@ textarea {
 
   .quarry-info-layout {
     gap: 18px;
+  }
+
+  .process-section--compact .process-grid {
+    grid-template-columns: repeat(3, minmax(220px, 78vw));
+    overflow-x: auto;
+    padding-bottom: 6px;
+    scroll-snap-type: x proximity;
+  }
+
+  .process-section--compact .process-card {
+    scroll-snap-align: start;
   }
 
   .hero-copy {

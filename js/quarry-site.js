@@ -124,7 +124,7 @@
         message
       ].join("\n");
 
-      window.location.href = `mailto:jabulanigroup2002@gmail.com?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
+      window.location.href = `mailto:info@jabulanigroupofcompanies.co.za?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
 
       if (contactStatus) {
         contactStatus.textContent = "Your email app should open now. If it does not, call or WhatsApp us using the details on this page.";
