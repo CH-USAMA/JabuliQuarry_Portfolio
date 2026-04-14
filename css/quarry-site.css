@@ -305,6 +305,8 @@ textarea {
   border-color: color-mix(in srgb, var(--accent) 32%, var(--border));
   background: color-mix(in srgb, var(--accent) 11%, var(--surface-strong));
   color: var(--accent);
+  width: fit-content;
+  align-self: flex-start;
 }
 
 .hero h1 {
@@ -1855,6 +1857,18 @@ textarea {
     gap: 16px;
   }
 
+  .quarry-info-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .quarry-info-content {
+    order: 1;
+  }
+
+  .quarry-info-card {
+    order: 2;
+  }
+
   .contact-feature {
     margin-bottom: 0;
   }
@@ -2002,6 +2016,10 @@ textarea {
   .panel p,
   .split-copy p {
     font-size: 0.95rem;
+  }
+
+  .quarry-info-layout {
+    gap: 18px;
   }
 
   .hero-copy {
