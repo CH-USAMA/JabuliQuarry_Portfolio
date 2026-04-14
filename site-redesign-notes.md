@@ -18,6 +18,7 @@ Shared design system files:
 - `js/quarry-site.js`
 - `js/gallery-page.js`
 - `js/gallery-data.js`
+- `js/gallery-data.php`
 - `scripts/generate-gallery-data.ps1`
 
 ## Core direction agreed
@@ -40,6 +41,7 @@ Shared design system files:
 - Added custom community image slider behavior for About page
 - Added safe contact form mailto behavior
 - Added gallery data generator for portfolio folders
+- Added dynamic PHP gallery data endpoint for portfolio folders
 - Added modern gallery page with category tabs, masonry layout, lazy loading, skeletons, lightbox, and load-more-on-scroll
 
 ### Shared hero treatment
@@ -186,8 +188,9 @@ The gallery does not try to read folders directly in-browser. Instead it now use
 
 - `scripts/generate-gallery-data.ps1`
 - generated output file: `js/gallery-data.js`
+- dynamic PHP endpoint: `js/gallery-data.php`
 
-This script scans the local `portfolio/` directory and converts folders into gallery categories.
+These scan the local `portfolio/` directory and convert folders into gallery categories.
 
 Current portfolio folders detected:
 
@@ -303,6 +306,7 @@ Completed visual polish includes:
 - Some contact/location details vary between Tsolo and Mount Frere references from different source materials; these may still need one final consistency pass.
 - The site has been substantially cleaned and themed, but still benefits from a final browser QA pass for exact visual spacing.
 - The gallery depends on regenerating `js/gallery-data.js` whenever portfolio folders/images are changed.
+- If the site is served through PHP, `gallery.html` now reads live portfolio data from `js/gallery-data.php` instead of depending on the generated JS file.
 - Legacy theme pages, unused legacy CSS/JS libraries, old favicon/manifest files, and the `RhinoQuarries/` reference folder were removed after dependency review so the project now only keeps the live site files and required assets.
 
 ## Recommended next steps
