@@ -612,11 +612,31 @@ textarea {
 }
 
 .split-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
   padding: 38px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
+}
+
+.split-copy .section-tag {
+  margin: 0;
+}
+
+.split-copy h3 {
+  margin: 0;
+}
+
+.split-copy > p {
+  margin: 0;
+}
+
+.split-copy .list-clean {
+  margin-top: 10px;
 }
 
 .split-copy > p,
@@ -909,6 +929,10 @@ textarea {
   gap: 18px;
 }
 
+.timeline--cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .why-choose-grid,
 .team-grid,
 .benefits-grid {
@@ -1072,6 +1096,10 @@ textarea {
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   background: color-mix(in srgb, var(--surface-strong) 90%, var(--bg));
+}
+
+.timeline--cards .timeline-item {
+  height: 100%;
 }
 
 .site-footer {
@@ -1691,6 +1719,10 @@ textarea {
     gap: 18px;
   }
 
+  .timeline--cards {
+    grid-template-columns: 1fr;
+  }
+
   .contact-feature {
     margin-bottom: 4px;
   }
@@ -1893,6 +1925,10 @@ textarea {
 
   .timeline {
     gap: 14px;
+  }
+
+  .timeline--cards {
+    grid-template-columns: 1fr;
   }
 
   .contact-grid,
