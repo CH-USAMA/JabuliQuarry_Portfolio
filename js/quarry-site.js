@@ -2,6 +2,9 @@
   const body = document.body;
   const header = document.querySelector("[data-site-header]");
   const menuToggle = document.querySelector("[data-menu-toggle]");
+  const infoToggle = document.querySelector("[data-info-toggle]");
+  const infoDrawer = document.querySelector("[data-info-drawer]");
+  const infoClose = document.querySelector("[data-info-close]");
   const themeToggle = document.querySelector("[data-theme-toggle]");
   const themeIcon = themeToggle?.querySelector("i");
   const contactForm = document.querySelector("[data-contact-form]");
@@ -41,6 +44,13 @@
     applyTheme(nextTheme);
   });
 
+  const setInfoDrawer = (open) => {
+    body.classList.toggle("info-open", open);
+    infoToggle?.setAttribute("aria-expanded", String(open));
+    infoToggle?.setAttribute("aria-label", open ? "Close contact drawer" : "Open contact drawer");
+    infoDrawer?.setAttribute("aria-hidden", open ? "false" : "true");
+  };
+
   menuToggle?.addEventListener("click", () => {
     body.classList.toggle("nav-open");
     const expanded = body.classList.contains("nav-open");
@@ -48,8 +58,24 @@
     menuToggle.setAttribute("aria-label", expanded ? "Close navigation" : "Open navigation");
   });
 
+  infoToggle?.addEventListener("click", () => {
+    const open = !body.classList.contains("info-open");
+    setInfoDrawer(open);
+  });
+
+  infoClose?.addEventListener("click", () => setInfoDrawer(false));
+
+  infoDrawer?.addEventListener("click", (event) => {
+    if (event.target === infoDrawer) {
+      setInfoDrawer(false);
+    }
+  });
+
   document.querySelectorAll("[data-nav-link]").forEach((link) => {
-    link.addEventListener("click", () => body.classList.remove("nav-open"));
+    link.addEventListener("click", () => {
+      body.classList.remove("nav-open");
+      setInfoDrawer(false);
+    });
   });
 
   window.addEventListener("keydown", (event) => {
@@ -57,6 +83,10 @@
       body.classList.remove("nav-open");
       menuToggle?.setAttribute("aria-expanded", "false");
       menuToggle?.setAttribute("aria-label", "Open navigation");
+    }
+
+    if (event.key === "Escape" && body.classList.contains("info-open")) {
+      setInfoDrawer(false);
     }
   });
 

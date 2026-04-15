@@ -2,12 +2,13 @@
 
 ## Current project state
 
-This workspace now contains a redesigned 5-page quarry website based on the user's direction and inspired by Rhino Quarries, while preserving the custom red, white, and black identity already started in the original theme.
+This workspace now contains a redesigned 6-page quarry website based on the user's direction and inspired by Rhino Quarries, while preserving the custom red, white, and black identity already started in the original theme.
 
 Main public pages:
 
 - `index.html`
 - `about.html`
+- `services.html`
 - `products.html`
 - `gallery.html`
 - `contact.html`
@@ -61,17 +62,19 @@ All public pages now use the same traditional footer design:
 - short quarry/company description
 - quick links
 - contact details
+- social links
 
 ## Homepage status
 
 `index.html` has been reworked heavily and now includes:
 
-- shared video hero with compact process tiles
+- shared video hero with static `Open Cast Mine` label
 - reduced-size lower process image strip
 - `Open Cast Mine` label in navbar brand eyebrow
 - quarry information / open-cast mine split section
 - quarry information content with `View More` and `Get a Quote`
 - `About us` company block
+- dedicated three-card section for `Our Services`, `Products`, and `Contact Us`
 - `Top-Quality hardware & building products for you` section
 - `Expertise That Drives Your Building success` section
 - quarry stats grid with:
@@ -91,11 +94,21 @@ Sections that were removed from Home during cleanup:
 - extra hero text/buttons
 - other filler sections carried from the original theme
 
+## Services page status
+
+`services.html` now includes:
+
+- shared video hero matching the main quarry pages
+- weigh machine usage service
+- drilling machine rental service
+- goods delivery service
+- CTA links back into the contact page
+
 ## About page status
 
 `about.html` now includes:
 
-- shared video hero with compact process tiles
+- shared video hero with static `Open Cast Mine` label
 - lower process image strip
 - `About us` company section
 - quarry information section
@@ -132,7 +145,7 @@ The About page content was later tightened to reduce repetition between:
 
 `products.html` now includes:
 
-- shared video hero with compact process tiles
+- shared video hero with static `Open Cast Mine` label
 - alternating image/content product sections
 - `View Image` links
 - quarry-specific, more practical product descriptions
@@ -154,7 +167,7 @@ Product data source used for this refinement:
 
 `contact.html` now includes:
 
-- shared video hero with compact process tiles
+- shared video hero with static `Open Cast Mine` label
 - redesigned `Get in touch` two-column contact layout
 - left-side contact information block
 - right-side enquiry form
@@ -166,6 +179,9 @@ Changes made during refinement:
 - tightened spacing between contact section and map
 - updated the contact layout to feel closer to the user's preferred structure
 - `Gallery` navigation link in shared nav/footer
+- updated primary email to `info@jabulanigroupofcompanies.co.za`
+- updated address to `Portion of farm 541, Tiki Tiki Main Street, Tsolo 5170, Eastern Cape`
+- updated map links to `Jabulani Quarries Tsolo`
 
 ## Gallery page status
 
@@ -220,11 +236,15 @@ Multiple responsive passes were completed across the site:
 
 - homepage mobile spacing tightened
 - hero tiles compacted for tablet/mobile
+- hero ticker removed and replaced with static label styling
 - process cards reduced on smaller screens
 - About / Products / Contact mobile spacing improved
 - contact form and map made mobile friendly
 - typography rebalanced for smaller screens
 - footer spacing tightened for mobile
+- footer quick links regrouped into pill-style layouts
+- homepage process strip grouped into a mobile horizontal swipe layout
+- right-side contact/info drawer added across public pages
 - community slider adapted for tablet/mobile
 
 ## Typography and visual refinement completed
@@ -303,7 +323,10 @@ Completed visual polish includes:
 ## Current content notes
 
 - Product descriptions are now more quarry-specific, but can still be improved further with exact technical grading/spec data later.
-- Some contact/location details vary between Tsolo and Mount Frere references from different source materials; these may still need one final consistency pass.
+- Primary contact/location details are now aligned to:
+  - `Portion of farm 541, Tiki Tiki Main Street, Tsolo 5170, Eastern Cape`
+  - `info@jabulanigroupofcompanies.co.za`
+  - Google Maps location: `Jabulani Quarries Tsolo`
 - The site has been substantially cleaned and themed, but still benefits from a final browser QA pass for exact visual spacing.
 - The gallery depends on regenerating `js/gallery-data.js` whenever portfolio folders/images are changed.
 - If the site is served through PHP, `gallery.html` now reads live portfolio data from `js/gallery-data.php` instead of depending on the generated JS file.
@@ -314,7 +337,6 @@ Completed visual polish includes:
 Best next actions after this note update:
 
 - final browser-based visual QA on all main pages plus gallery
-- unify any remaining location/address references
 - replace general quarry product wording with final technical product specs if available
 - add images into `portfolio/community-work` and `portfolio/quarry`, then regenerate `js/gallery-data.js`
 - optionally add autoplay + pause-on-hover to the community slider
