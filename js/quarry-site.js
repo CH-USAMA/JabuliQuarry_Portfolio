@@ -2,11 +2,10 @@
   const body = document.body;
   const header = document.querySelector("[data-site-header]");
   const menuToggle = document.querySelector("[data-menu-toggle]");
-  const infoToggle = document.querySelector("[data-info-toggle]");
+  const infoToggles = document.querySelectorAll("[data-info-toggle]");
   const infoDrawer = document.querySelector("[data-info-drawer]");
   const infoClose = document.querySelector("[data-info-close]");
-  const themeToggle = document.querySelector("[data-theme-toggle]");
-  const themeIcon = themeToggle?.querySelector("i");
+  const themeToggles = document.querySelectorAll("[data-theme-toggle]");
   const contactForm = document.querySelector("[data-contact-form]");
   const contactStatus = document.querySelector("[data-contact-status]");
 
@@ -30,24 +29,31 @@
   const applyTheme = (theme) => {
     body.setAttribute("data-theme", theme);
     storage.set("jq-theme", theme);
-    if (themeIcon) {
-      themeIcon.className = theme === "dark" ? "fa-solid fa-sun" : "fa-solid fa-moon";
-    }
+    themeToggles.forEach((toggle) => {
+      const icon = toggle.querySelector("i");
+      if (icon) {
+        icon.className = theme === "dark" ? "fa-solid fa-sun" : "fa-solid fa-moon";
+      }
+    });
   };
 
   const storedTheme = storage.get("jq-theme");
   const preferredDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   applyTheme(storedTheme || (preferredDark ? "dark" : "light"));
 
-  themeToggle?.addEventListener("click", () => {
-    const nextTheme = body.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    applyTheme(nextTheme);
+  themeToggles.forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      const nextTheme = body.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      applyTheme(nextTheme);
+    });
   });
 
   const setInfoDrawer = (open) => {
     body.classList.toggle("info-open", open);
-    infoToggle?.setAttribute("aria-expanded", String(open));
-    infoToggle?.setAttribute("aria-label", open ? "Close contact drawer" : "Open contact drawer");
+    infoToggles.forEach((toggle) => {
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Close contact drawer" : "Open contact drawer");
+    });
     infoDrawer?.setAttribute("aria-hidden", open ? "false" : "true");
   };
 
@@ -58,9 +64,11 @@
     menuToggle.setAttribute("aria-label", expanded ? "Close navigation" : "Open navigation");
   });
 
-  infoToggle?.addEventListener("click", () => {
-    const open = !body.classList.contains("info-open");
-    setInfoDrawer(open);
+  infoToggles.forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      const open = !body.classList.contains("info-open");
+      setInfoDrawer(open);
+    });
   });
 
   infoClose?.addEventListener("click", () => setInfoDrawer(false));
