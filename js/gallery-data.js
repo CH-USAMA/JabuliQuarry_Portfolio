@@ -1,5 +1,5 @@
 ﻿window.GALLERY_DATA = {
-    "generatedAt":  "2026-04-14T13:23:00",
+    "generatedAt":  "2026-04-15T13:35:08",
     "categories":  [
                        {
                            "slug":  "community-work",
@@ -1630,9 +1630,33 @@
                            "slug":  "quarry",
                            "name":  "quarry",
                            "label":  "quarry",
-                           "imageCount":  0,
+                           "imageCount":  5,
                            "images":  [
-
+                                          {
+                                              "src":  "portfolio/quarry/IMG_0759.heic",
+                                              "alt":  "IMG 0759",
+                                              "name":  "IMG_0759.heic"
+                                          },
+                                          {
+                                              "src":  "portfolio/quarry/IMG_0902.jpg",
+                                              "alt":  "IMG 0902",
+                                              "name":  "IMG_0902.jpg"
+                                          },
+                                          {
+                                              "src":  "portfolio/quarry/IMG_7340.heic",
+                                              "alt":  "IMG 7340",
+                                              "name":  "IMG_7340.heic"
+                                          },
+                                          {
+                                              "src":  "portfolio/quarry/IMG_9120.heic",
+                                              "alt":  "IMG 9120",
+                                              "name":  "IMG_9120.heic"
+                                          },
+                                          {
+                                              "src":  "portfolio/quarry/IMG_9141.heic",
+                                              "alt":  "IMG 9141",
+                                              "name":  "IMG_9141.heic"
+                                          }
                                       ]
                        }
                    ]

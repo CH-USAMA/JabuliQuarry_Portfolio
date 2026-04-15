@@ -44,6 +44,7 @@ Shared design system files:
 - Added safe contact form mailto behavior
 - Added gallery data generator for portfolio folders
 - Added dynamic PHP gallery data endpoint for portfolio folders
+- Added one-click static gallery refresh helper: `update-gallery.bat`
 - Added modern gallery page with category tabs, masonry layout, lazy loading, skeletons, lightbox, and load-more-on-scroll
 
 ### Shared hero treatment
@@ -203,11 +204,11 @@ Changes made during refinement:
 
 ### Gallery data source
 
-The gallery does not try to read folders directly in-browser. Instead it now uses:
+The gallery does not try to read folders directly in-browser. For the static production site it now uses:
 
 - `scripts/generate-gallery-data.ps1`
+- `update-gallery.bat`
 - generated output file: `js/gallery-data.js`
-- dynamic PHP endpoint: `js/gallery-data.php`
 
 These scan the local `portfolio/` directory and convert folders into gallery categories.
 
@@ -220,7 +221,10 @@ Current portfolio folders detected:
 
 Current note:
 
-- `community-work` and `quarry` are present as categories but currently empty, so the gallery shows an empty-state message for those tabs until images are added and the manifest is regenerated.
+- `portfolio/quarry` now contains 5 images in the static manifest.
+- the gallery page now loads `js/gallery-data.js` directly instead of the PHP endpoint, so it works on static hosting.
+- after adding, removing, or renaming portfolio folders/images, run `update-gallery.bat` or `powershell -ExecutionPolicy Bypass -File scripts\generate-gallery-data.ps1` to refresh the static manifest.
+- `.heic`, `.heif`, and `.avif` files are now included in the manifest, but real browser visibility still depends on browser support. `.jpg`, `.png`, and `.webp` remain the safest formats.
 
 ## Brand slider status
 
@@ -348,8 +352,7 @@ Completed visual polish includes:
 - Footer description is now shortened to:
   - `Jabulani Crush & Quarry is an open cast mine in Tsolo, Eastern Cape, with dependable service since 2002.`
 - The site has been substantially cleaned and themed, but still benefits from a final browser QA pass for exact visual spacing.
-- The gallery depends on regenerating `js/gallery-data.js` whenever portfolio folders/images are changed.
-- If the site is served through PHP, `gallery.html` now reads live portfolio data from `js/gallery-data.php` instead of depending on the generated JS file.
+- The static gallery depends on regenerating `js/gallery-data.js` whenever portfolio folders/images are changed.
 - `gallery.html` has now been moved off the Tailwind CDN and uses local static CSS in `css/gallery-page.css`.
 - `js/gallery-page.js` now renders semantic gallery classes so the gallery no longer depends on Tailwind utility classes at runtime.
 - Legacy theme pages, unused legacy CSS/JS libraries, old favicon/manifest files, and the `RhinoQuarries/` reference folder were removed after dependency review so the project now only keeps the live site files and required assets.
