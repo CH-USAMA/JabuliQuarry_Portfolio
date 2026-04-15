@@ -226,6 +226,9 @@ Current note:
 - after adding, removing, or renaming portfolio folders/images, run `update-gallery.bat` or `powershell -ExecutionPolicy Bypass -File scripts\generate-gallery-data.ps1` to refresh the static manifest.
 - unsupported gallery formats such as `.heic` and `.heif` are now ignored in the static manifest to protect customer experience.
 - `.jpg`, `.jpeg`, `.png`, `.webp`, and `.gif` are the supported gallery formats.
+- the gallery now opens on the first folder that actually contains supported images instead of defaulting to an empty folder.
+- empty gallery folders now show the message `Images will be uploaded soon.`
+- the desktop empty-state block now clears the masonry layout properly so it does not overlap the last visible image.
 
 ## Brand slider status
 

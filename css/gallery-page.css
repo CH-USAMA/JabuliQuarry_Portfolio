@@ -233,6 +233,10 @@
 }
 
 .gallery-empty {
+  clear: both;
+  display: block;
+  width: 100%;
+  margin-top: 32px;
   border: 1px dashed var(--border);
   border-radius: 2rem;
   background: var(--surface);
