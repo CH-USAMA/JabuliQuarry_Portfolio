@@ -3,7 +3,7 @@ param(
   [string]$OutputFile = "js/gallery-data.js"
 )
 
-$imageExtensions = @(".jpg", ".jpeg", ".png", ".webp", ".gif", ".heic", ".heif", ".avif")
+$imageExtensions = @(".jpg", ".jpeg", ".png", ".webp", ".gif")
 
 if (-not (Test-Path $PortfolioRoot)) {
   throw "Portfolio root '$PortfolioRoot' was not found."
@@ -25,7 +25,7 @@ $categories = Get-ChildItem -Path $PortfolioRoot -Directory | Sort-Object Name |
     slug = ($categoryDir.Name.ToLowerInvariant() -replace "[^a-z0-9]+", "-").Trim("-")
     name = $categoryDir.Name
     label = (($categoryDir.Name -replace "[-_]+", " ") -replace "\s+", " ").Trim()
-    imageCount = $images.Count
+    imageCount = @($images).Count
     images = @($images)
   }
 }

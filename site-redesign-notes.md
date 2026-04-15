@@ -224,7 +224,8 @@ Current note:
 - `portfolio/quarry` now contains 5 images in the static manifest.
 - the gallery page now loads `js/gallery-data.js` directly instead of the PHP endpoint, so it works on static hosting.
 - after adding, removing, or renaming portfolio folders/images, run `update-gallery.bat` or `powershell -ExecutionPolicy Bypass -File scripts\generate-gallery-data.ps1` to refresh the static manifest.
-- `.heic`, `.heif`, and `.avif` files are now included in the manifest, but real browser visibility still depends on browser support. `.jpg`, `.png`, and `.webp` remain the safest formats.
+- unsupported gallery formats such as `.heic` and `.heif` are now ignored in the static manifest to protect customer experience.
+- `.jpg`, `.jpeg`, `.png`, `.webp`, and `.gif` are the supported gallery formats.
 
 ## Brand slider status
 

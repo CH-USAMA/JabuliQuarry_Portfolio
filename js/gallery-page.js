@@ -21,7 +21,7 @@
   const lightboxCategory = document.querySelector("[data-lightbox-category]");
   const lightboxClose = document.querySelector("[data-lightbox-close]");
 
-  let activeIndex = 0;
+  let activeIndex = Math.max(0, data.categories.findIndex((category) => Array.isArray(category.images) && category.images.length > 0));
   let renderedCount = 0;
 
   const formatLabel = (label) =>
