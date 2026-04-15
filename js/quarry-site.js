@@ -3,6 +3,7 @@
   const header = document.querySelector("[data-site-header]");
   const menuToggle = document.querySelector("[data-menu-toggle]");
   const infoToggle = document.querySelector("[data-info-toggle]");
+  const mobileInfoToggles = document.querySelectorAll("[data-mobile-info-toggle]");
   const infoDrawer = document.querySelector("[data-info-drawer]");
   const infoClose = document.querySelector("[data-info-close]");
   const themeToggle = document.querySelector("[data-theme-toggle]");
@@ -61,6 +62,15 @@
   infoToggle?.addEventListener("click", () => {
     const open = !body.classList.contains("info-open");
     setInfoDrawer(open);
+  });
+
+  mobileInfoToggles.forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      body.classList.remove("nav-open");
+      menuToggle?.setAttribute("aria-expanded", "false");
+      menuToggle?.setAttribute("aria-label", "Open navigation");
+      setInfoDrawer(true);
+    });
   });
 
   infoClose?.addEventListener("click", () => setInfoDrawer(false));

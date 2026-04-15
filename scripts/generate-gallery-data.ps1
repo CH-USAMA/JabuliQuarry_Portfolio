@@ -3,7 +3,7 @@ param(
   [string]$OutputFile = "js/gallery-data.js"
 )
 
-$imageExtensions = @(".jpg", ".jpeg", ".png", ".webp", ".gif")
+$imageExtensions = @(".jpg", ".jpeg", ".png", ".webp", ".gif", ".heic", ".heif", ".avif")
 
 if (-not (Test-Path $PortfolioRoot)) {
   throw "Portfolio root '$PortfolioRoot' was not found."

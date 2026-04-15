@@ -4,7 +4,7 @@ declare(strict_types=1);
 header('Content-Type: application/javascript; charset=UTF-8');
 
 $portfolioRoot = realpath(__DIR__ . '/../portfolio');
-$imageExtensions = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
+$imageExtensions = ['jpg', 'jpeg', 'png', 'webp', 'gif', 'heic', 'heif', 'avif'];
 
 if ($portfolioRoot === false || !is_dir($portfolioRoot)) {
     http_response_code(500);
