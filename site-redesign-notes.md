@@ -38,6 +38,7 @@ Shared design system files:
 - Added a lightweight JS controller: `js/quarry-site.js`
 - Added persistent light/dark mode
 - Added mobile nav toggle
+- Added right-side contact/info drawer
 - Added sticky header behavior
 - Added custom community image slider behavior for About page
 - Added safe contact form mailto behavior
@@ -61,8 +62,8 @@ All public pages now use the same traditional footer design:
 - logo
 - short quarry/company description
 - quick links
+- social links grouped under quick links
 - contact details
-- social links
 
 ## Homepage status
 
@@ -104,6 +105,8 @@ Sections that were removed from Home during cleanup:
 - goods delivery service
 - CTA links back into the contact page
 
+Navigation/footer wording now uses `About Us` instead of `About`.
+
 ## About page status
 
 `about.html` now includes:
@@ -113,10 +116,10 @@ Sections that were removed from Home during cleanup:
 - `About us` company section
 - quarry information section
 - `Why Choose Us` section
-- `Team Jabulani` section
 - `Key benefits` section
 - `Community work` section
 - simplified `How we work` timeline
+- `Team Jabulani` section moved to the end of the page
 
 ### Community work section
 
@@ -243,9 +246,24 @@ Multiple responsive passes were completed across the site:
 - typography rebalanced for smaller screens
 - footer spacing tightened for mobile
 - footer quick links regrouped into pill-style layouts
+- footer social section moved below quick links
 - homepage process strip grouped into a mobile horizontal swipe layout
 - right-side contact/info drawer added across public pages
 - community slider adapted for tablet/mobile
+
+## SEO and indexing
+
+Basic production-facing crawl/indexing files have now been added:
+
+- `robots.txt`
+- `sitemap.xml`
+- `llms.txt`
+- canonical tags across public pages
+- Open Graph and Twitter card metadata across public pages
+
+Current sitemap/robots domain assumption used in those files:
+
+- `https://jabulaniquarriestsolo.co.za/`
 
 ## Typography and visual refinement completed
 
@@ -327,9 +345,13 @@ Completed visual polish includes:
   - `Portion of farm 541, Tiki Tiki Main Street, Tsolo 5170, Eastern Cape`
   - `info@jabulanigroupofcompanies.co.za`
   - Google Maps location: `Jabulani Quarries Tsolo`
+- Footer description is now shortened to:
+  - `Jabulani Crush & Quarry is an open cast mine in Tsolo, Eastern Cape, with dependable service since 2002.`
 - The site has been substantially cleaned and themed, but still benefits from a final browser QA pass for exact visual spacing.
 - The gallery depends on regenerating `js/gallery-data.js` whenever portfolio folders/images are changed.
 - If the site is served through PHP, `gallery.html` now reads live portfolio data from `js/gallery-data.php` instead of depending on the generated JS file.
+- `gallery.html` has now been moved off the Tailwind CDN and uses local static CSS in `css/gallery-page.css`.
+- `js/gallery-page.js` now renders semantic gallery classes so the gallery no longer depends on Tailwind utility classes at runtime.
 - Legacy theme pages, unused legacy CSS/JS libraries, old favicon/manifest files, and the `RhinoQuarries/` reference folder were removed after dependency review so the project now only keeps the live site files and required assets.
 
 ## Recommended next steps
@@ -340,4 +362,3 @@ Best next actions after this note update:
 - replace general quarry product wording with final technical product specs if available
 - add images into `portfolio/community-work` and `portfolio/quarry`, then regenerate `js/gallery-data.js`
 - optionally add autoplay + pause-on-hover to the community slider
-- optionally add pause-on-hover / speed control to the brands slider

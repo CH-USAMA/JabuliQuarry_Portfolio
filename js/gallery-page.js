@@ -32,9 +32,9 @@
       .join(" ");
 
   const skeletonMarkup = Array.from({ length: 10 }, () => `
-    <article class="gallery-card overflow-hidden rounded-[1.6rem]">
-      <div class="animate-pulse rounded-[1.6rem] border border-[color:var(--border)] bg-[color:var(--surface)] p-3">
-        <div class="h-52 rounded-[1.2rem] bg-[color:var(--surface-muted)]"></div>
+    <article class="gallery-card gallery-card--skeleton">
+      <div class="gallery-skeleton">
+        <div class="gallery-skeleton__media"></div>
       </div>
     </article>
   `).join("");
@@ -59,7 +59,7 @@
   const renderTabs = () => {
     tabsHost.innerHTML = data.categories.map((category, index) => `
       <button
-        class="gallery-tab ${index === activeIndex ? "is-active" : ""} inline-flex items-center gap-3 whitespace-nowrap rounded-full border border-[color:var(--border)] bg-[color:var(--surface-strong)] px-4 py-3 text-sm font-bold text-[color:var(--text)] transition hover:-translate-y-0.5 hover:border-[color:var(--accent)]"
+        class="gallery-tab ${index === activeIndex ? "is-active" : ""}"
         type="button"
         role="tab"
         data-gallery-tab
@@ -67,7 +67,7 @@
         aria-selected="${index === activeIndex ? "true" : "false"}"
       >
         <span>${formatLabel(category.label)}</span>
-        <span class="rounded-full bg-black/5 px-2 py-1 text-xs text-[color:var(--muted)]">${category.imageCount}</span>
+        <span class="gallery-tab__count">${category.imageCount}</span>
       </button>
     `).join("");
 
@@ -93,25 +93,25 @@
     }
 
     const markup = slice.map((image, index) => `
-      <article class="gallery-card group">
+      <article class="gallery-card">
         <button
-          class="gallery-panel relative block w-full overflow-hidden rounded-[1.6rem] p-3 text-left"
+          class="gallery-panel gallery-image-card"
           type="button"
           data-gallery-image
           data-image-index="${renderedCount + index}"
         >
-          <div class="overflow-hidden rounded-[1.2rem]">
+          <div class="gallery-image-card__media">
             <img
-              class="h-auto w-full rounded-[1.2rem] object-cover transition duration-500 group-hover:scale-[1.04]"
+              class="gallery-image-card__image"
               src="${image.src}"
               alt="${image.alt || formatLabel(category.label)}"
               loading="lazy"
               decoding="async"
             >
           </div>
-          <div class="pointer-events-none absolute inset-x-3 bottom-3 rounded-b-[1.2rem] bg-gradient-to-t from-black/75 via-black/20 to-transparent px-4 pb-4 pt-12 opacity-0 transition duration-300 group-hover:opacity-100">
-            <p class="text-xs font-bold uppercase tracking-[0.22em] text-white/70">${formatLabel(category.label)}</p>
-            <h3 class="mt-2 text-sm font-bold text-white">${image.alt || image.name}</h3>
+          <div class="gallery-image-card__overlay">
+            <p class="gallery-image-card__label">${formatLabel(category.label)}</p>
+            <h3 class="gallery-image-card__title">${image.alt || image.name}</h3>
           </div>
         </button>
       </article>
