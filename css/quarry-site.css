@@ -1990,7 +1990,7 @@ body.info-open .info-drawer__panel {
   }
 
   .theme-toggle {
-    display: none;
+    display: inline-flex;
   }
 
   body.nav-open .info-toggle,
